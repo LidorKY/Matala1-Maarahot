@@ -8,3 +8,5 @@ int isArmstrong(int);
 int Power(int base, int pow);
 int factorial(int);
 int numLength(int);
+int reverse (int);
+int isArmstrongRec(int,int);

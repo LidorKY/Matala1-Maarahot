@@ -5,38 +5,45 @@
 #define false 0;
 
 int Power(int base, int pow){
-int temp = 1;
-while(pow != 0){
-temp = temp * base;
-pow--;
+if(pow == 0){
+    return true;
 }
-return temp;
+int n = base;
+for(int i = 1; i < pow; i++){
+    base *= n;
 }
-
-int isPalindrome(int num){
+return base;
+}
+int numLength(int num){
     int counter = 0;
-    int copyNum = num;
-    while(copyNum != 0){
-        copyNum = copyNum/10;
+    if(num == 0){
+        return 1;
+    }
+    while(num != 0){
+        num = num / 10;
         counter++;
     }
-    int start = 0;
-    int end = 0;
-    copyNum = num;
-    int counter2 = 1;
-    for(int i = 0; counter2 < counter; i++){
-        start = copyNum%Power(10,counter2);
-        end = copyNum%Power(10,counter-1);
-        if(start != end){
-            return false;
-        }
-        copyNum = (copyNum - start*(counter2))/10;
-        copyNum = copyNum - end*(counter-2);
-        counter--;
-        counter2++;
-        
+    return counter;
+}
+
+int isPalindrome (int a){
+int tmp=0;
+int tmp2=a;
+
+while(tmp2!=0){
+    tmp2=tmp2/10;
+    tmp++;
     }
-    return true;
+    tmp2=tmp;
+for(int i=0;i<tmp2/2;i++){
+   if(a/Power(tmp-1,10)!=a%10){
+        return 0;
+   }
+    a-=(a/Power(tmp-1,10))*Power(tmp-1,10);
+    a=a/10;
+    tmp-=2;
+    }
+    return 1;
 }
 
     int isArmstrong(int num){

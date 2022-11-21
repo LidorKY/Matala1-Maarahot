@@ -17,7 +17,7 @@ int Power(int base, int pow){
     }
     return base*Power(base,pow-1);
 }
-
+/*
 int isPalindrome (int num){
 if ((num >= 0)&&(num <= 9)){
     return true;
@@ -37,18 +37,52 @@ num = num / 10;
 
 return ((1)&&(isPalindrome(num)));
 }
+*/
 
+int isPalindrome (int num){
+if(numLength(num) == 1){
+    return true;
+}
+if(num == reverse(num)){
+    return true;
+}
+return false;
+}
+
+int reverse (int num){
+if(numLength(num) == 1){
+    return num;
+}
+
+int counter = numLength(num);
+int index = num % 10;
+int temp = Power(10,counter-1);
+
+return index*temp + reverse(num/10);
+}
 
 int isArmstrong (int num){
 
 int counter = numLength(num);
 
+if(isArmstrongRec(num,counter) == num){
+    return true;
+}
+return false;
+}
+
+int isArmstrongRec(int num, int counter){
 if ((num >= 0)&&(num <= 9)){
     return Power(num,counter);
 }
-
 int temp = num % 10;
 num = num / 10;
 
-return Power(temp,counter) + isArmstrong(num);
+return Power(temp,counter) + isArmstrongRec(num,counter);
 }
+
+
+
+
+
+
