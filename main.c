@@ -19,40 +19,40 @@ printf("pls enter a number that is bigger than the first number: \n");
 scanf("%d",&y); 
 }
 
-
-// printing prime numbers
-printf("\nthe Prime numbers between %d and %d are: ",x,y);
-for(int i = x; i <= y; i++){
-    if(isPrime(i)){
-        printf("%d , ",i);
-    }
-}
-printf("\n");
-
 // printing armstrong nubers
-printf("\nthe Armstrong numbers between %d and %d are: ",x,y);
+printf("The Armstrong numbers are: ");
 for(int i = x; i <= y; i++){
     if(isArmstrong(i)){
-        printf("%d , ",i);
-    }
-}
-printf("\n");
-
-//printing strong numbers
-printf("t\n he Strong numbers between %d and %d are: ",x,y);
-for(int i = x; i <= y; i++){
-    if(isStrong(i)){
-        printf("%d , ",i);
+        printf("%d ",i);
     }
 }
 printf("\n");
 
  //printing palindrome numbers
-printf("\nthe Palindrome numbers between %d and %d are: ",x,y);
+printf("The Palindrome numbers are: ");
 for(int i = x; i <= y; i++){
     if(isPalindrome(i)){
-        printf("%d , ",i);
+        printf("%d ",i);
     }
 }
+printf("\n");
+
+// printing prime numbers
+printf("The Prime numbers are: ");
+for(int i = x; i <= y; i++){
+    if(isPrime(i)){
+        printf("%d ",i);
+    }
+}
+printf("\n");
+
+//printing strong numbers
+printf("The Strong numbers are: ");
+for(int i = x; i <= y; i++){
+    if(isStrong(i)){
+        printf("%d ",i);
+    }
+}
+printf("\n");
 return 0;
 }
