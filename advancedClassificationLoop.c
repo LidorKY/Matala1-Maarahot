@@ -4,16 +4,16 @@
 #define true 1;
 #define false 0;
 
-int Power(int base, int pow){
-if(pow == 0){
-    return true;
-}
-int n = base;
-for(int i = 1; i < pow; i++){
-    base *= n;
-}
-return base;
-}
+int power(int pow, int base){
+    if(pow==0){
+        return 1;
+    }
+    int n=base;
+    for(int i=1;i<pow;i++){
+        base*=n;
+    }
+    return base;
+ }
 int numLength(int num){
     int counter = 0;
     if(num == 0){
@@ -36,10 +36,10 @@ while(tmp2!=0){
     }
     tmp2=tmp;
 for(int i=0;i<tmp2/2;i++){
-   if(a/Power(tmp-1,10)!=a%10){
+   if(a/power(tmp-1,10)!=a%10){
         return 0;
    }
-    a-=(a/Power(tmp-1,10))*Power(tmp-1,10);
+    a-=(a/power(tmp-1,10))*power(tmp-1,10);
     a=a/10;
     tmp-=2;
     }
@@ -58,7 +58,7 @@ for(int i=0;i<tmp2/2;i++){
     int temp;
     for(int i = 0; i < counter; i++){
         temp = copyNum%10;
-        sum = sum + Power(temp,counter);
+        sum = sum + power(temp,counter);
         copyNum = copyNum/10;
     }
     if(sum == num){
