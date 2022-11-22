@@ -4,16 +4,14 @@
 #define true 1;
 #define false 0;
 
-int power(int pow, int base){
-    if(pow==0){
-        return 1;
-    }
-    int n=base;
-    for(int i=1;i<pow;i++){
-        base*=n;
-    }
-    return base;
- }
+int Power(int base, int pow){
+int temp = 1;
+while(pow != 0){
+temp = temp * base;
+pow--;
+}
+return temp;
+}
 int numLength(int num){
     int counter = 0;
     if(num == 0){
@@ -26,47 +24,44 @@ int numLength(int num){
     return counter;
 }
 
-int isPalindrome (int a){
-int tmp=0;
-int tmp2=a;
-
-while(tmp2!=0){
-    tmp2=tmp2/10;
-    tmp++;
-    }
-    tmp2=tmp;
-for(int i=0;i<tmp2/2;i++){
-   if(a/power(tmp-1,10)!=a%10){
-        return 0;
-   }
-    a-=(a/power(tmp-1,10))*power(tmp-1,10);
-    a=a/10;
-    tmp-=2;
-    }
-    return 1;
+int isPalindrome(int num){
+int copyNum = num;
+int reversedNum = 0;
+int counter = numLength(num);
+int index = 0;
+while(counter != 0){
+index = copyNum % 10;
+reversedNum = reversedNum + (index)*(Power(10,counter-1));
+copyNum = copyNum / 10;
+counter--;
+}
+if(reversedNum == num){
+    return true;
+}
+return false;
 }
 
-    int isArmstrong(int num){
-    int counter = 0;
-    int copyNum = num;
-    while(copyNum != 0){
-        copyNum = copyNum/10;
-        counter++;
-    }
-    int sum = 0;
-    copyNum = num;
-    int temp;
-    for(int i = 0; i < counter; i++){
-        temp = copyNum%10;
-        sum = sum + power(temp,counter);
-        copyNum = copyNum/10;
-    }
-    if(sum == num){
-        return true;
-    }
-    else{
-        return false;
-    }
+int isArmstrong(int num){
+int counter = 0;
+int copyNum = num;
+ while(copyNum != 0){
+    copyNum = copyNum/10;
+    counter++;
+}
+int sum = 0;
+copyNum = num;
+int temp;
+for(int i = 0; i < counter; i++){
+    temp = copyNum%10;
+    sum = sum + Power(temp,counter);
+    copyNum = copyNum/10;
+}
+if(sum == num){
+    return true;
+}
+else{
+    return false;
+}
 
 
 
