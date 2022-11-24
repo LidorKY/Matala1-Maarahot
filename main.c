@@ -6,16 +6,15 @@ int main(){
 int x,y;
 
 scanf("%d",&x);
-/*while(x <= 0){
+while(x <= 0){
 scanf("%d",&x);  
-}*/
+}
 
 scanf("%d",&y);
-/*
 while(y < x){
 scanf("%d",&y); 
 }
-*/
+
 
 // printing armstrong nubers
 printf("The Armstrong numbers are:");
@@ -26,7 +25,7 @@ for(int i = x; i <= y; i++){
 }
 
  //printing palindrome numbers
-printf("\nThe Palindrome numbers are:");
+printf("\nThe Palindromes are:");
 for(int i = x; i <= y; i++){
     if(isPalindrome(i)){
         printf(" %d",i);
